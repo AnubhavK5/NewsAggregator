@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Aggregator</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> <!-- Link to CSS -->
+</head>
+<header>
+    <div class="container">
+        <h1>News Aggregator</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<body>
+    <h1 class="top-news-heading">TOP NEWS</h1>
+    
+    <!-- Container to hold news articles -->
+    <div id="news-container">
+
+        {% for article in page_obj.object_list %}
+            <!-- <div class="news-article"> -->
+                <!-- Display image if available -->
+                <div class="news-article {{ article.sentiment }}">
+                {% if article.urlToImage %}
+                    <img src="{{ article.urlToImage }}" alt="News Image">
+                {% else %}
+                    <img src="{% static 'images/default_image.jpg' %}" alt="Default Image">
+                {% endif %}
+                <!-- Article title -->
+                <h2>{{ article.title }}</h2>
+                <!-- Article description or placeholder text -->
+                <p>{{ article.description|default:"No description available." }}</p>
+                <!-- Link to the full article -->
+                <a href="{{ article.url }}" target="_blank">Read more</a>
+            </div>
+        {% empty %}
+            <p>No news articles available at the moment.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">&#171; Previous</a>
+        {% else %}
+            <span>&#171; Previous</span>
+        {% endif %}
+
+        <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next &#187;</a>
+        {% else %}
+            <span>Next &#187;</span>
+        {% endif %}
+    </div>
+</body>
+</html>
