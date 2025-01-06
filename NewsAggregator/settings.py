@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-3p56a)t(@nr!0zg%!^2o40hir1_8c220f11ws^z35n3h#$n#ng"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['aggregator.onrender.com']
+ALLOWED_HOSTS = ['aggregator.onrender.com', '127.0.0.1']
 
 
 # Application definition
@@ -121,6 +121,9 @@ USE_TZ = True
 # STATIC_URL = "static/"
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Use Whitenoise for serving static files efficiently
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Default primary key field type
