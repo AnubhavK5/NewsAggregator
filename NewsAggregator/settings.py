@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-3p56a)t(@nr!0zg%!^2o40hir1_8c220f11ws^z35n3h#$n#ng"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['aggregator.onrender.com', '127.0.0.1','newsaggregator-d2ig.onrender.com']
 

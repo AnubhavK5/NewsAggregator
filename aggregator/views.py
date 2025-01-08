@@ -83,7 +83,7 @@ def fetch_news(request):
     }
 
     try:
-        response = requests.get(api_url, params=params)
+        response = requests.get(api_url, params=params, timeout=10)
         response.raise_for_status()
         news_data = response.json()
       
