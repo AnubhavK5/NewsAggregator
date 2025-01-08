@@ -89,6 +89,7 @@ header nav ul li a:hover {
     object-fit: cover; /* Crop images to fit */
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    image-rendering: auto; /* Improve image quality */
 }
 
 .news-article.positive {
