@@ -46,7 +46,7 @@ def fetch_news(request):
     params = {
         'q': query,  # Search query for latest news
         'tbm': 'nws',        # Search type: news
-        'location': 'United States',  # Location filter (adjust as needed)
+        'location': 'India',  # Location filter (adjust as needed)
         'api_key': api_key,  # SerpApi key
     }
 
