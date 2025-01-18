@@ -2,7 +2,7 @@
 A web application that aggregates news articles based on user-inputted search queries and categorizes them using sentiment analysis. This project integrates news aggregation with natural language processing (NLP) to provide a user-friendly platform for browsing personalized news with visual sentiment indicators.
 
 ## Table of Contents
-  [Features](features)
+  [## Features](features)
   
   [Technologies Used](technologies-used)
   
